@@ -1,0 +1,201 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# SwiftUI 2025 Architecture Rules
+
+*(Inspired by Thomas Ricouard's article: [SwiftUI in 2025: Forget MVVM](https://dimillian.medium.com/swiftui-in-2025-forget-mvvm-262ff2bbd2ed))*
+
+
+## Core Philosophy
+
+* SwiftUI is no longer a "new" framework — it’s the default UI paradigm for Apple platforms.
+* Stop applying legacy patterns designed for UIKit.
+* Embrace SwiftUI’s declarative nature and native data flow.
+* Focus on simplicity, co-location of logic, and clear state ownership.
+
+---
+
+## Architecture Principles
+
+### 1. No Need for External Abstractions
+
+* Avoid introducing layers between data and UI.
+* Use native tools: `@State`, `@Binding`, `@Observable`, and `@Environment`.
+* Let the view own and manage its state unless reuse or sharing is *actually* required.
+
+### 2. Use SwiftUI’s Built-in State System
+
+* `@State` → Local, ephemeral view state
+* `@Observable` → Shared app or feature state (iOS 17+)
+* `@ObservableObject` → Compatibility with older OS versions
+* `@Binding` → Two-way binding from parent to child
+* `@Environment` / `@EnvironmentObject` → For dependencies like theme, auth, routing, etc.
+
+```swift
+@State private var isEditing = false
+
+@Observable
+class AuthState {
+    var isLoggedIn = false
+    var user: User?
+}
+
+struct MyApp: App {
+    @State private var auth = AuthState()
+    
+    var body: some Scene {
+        WindowGroup {
+            LoginView()
+                .environment(auth)
+        }
+    }
+}
+```
+
+---
+
+### 3. Follow Unidirectional Data Flow
+
+* **State goes down, actions go up.**
+* Views describe the UI; they do not own the business logic for the whole app.
+* Mutate state via simple methods or property assignments, not command handlers.
+
+```swift
+struct SettingsView: View {
+    @Binding var isDarkMode: Bool
+
+    var body: some View {
+        Toggle("Dark Mode", isOn: $isDarkMode)
+    }
+}
+```
+
+---
+
+### 4. Lifecycle and Side Effects
+
+* Use `.task`, `.onAppear`, `.onChange`, etc. — they are lifecycle-aware.
+* Prefer `async/await` to Combine or manual callbacks.
+* Avoid complex managers to coordinate view logic.
+
+```swift
+.task {
+    isLoading = true
+    user = try? await API.fetchUser()
+    isLoading = false
+}
+```
+
+---
+
+### 5. Compose UI with Small Views
+
+* Keep views focused and readable.
+* Extract subviews for repeated or logically isolated sections.
+* Use functions or separate `View` types — whatever is simplest and clearest.
+
+```swift
+var body: some View {
+    VStack {
+        Header()
+        Content()
+        Footer()
+    }
+}
+```
+
+---
+
+### 6. Avoid These Anti-patterns
+
+* ❌ Wrapping properties in external objects just to "test better"
+* ❌ Moving state out of views for no good reason
+* ❌ Duplicating SwiftUI's existing data flow tools
+* ❌ Creating "controllers" or "managers" that mimic UIKit patterns
+* ❌ Pretending SwiftUI needs to be architected like UIKit
+
+---
+
+### 7. Testing Strategy
+
+* Logic belongs where it’s used. Test it in isolation.
+* If shared logic emerges naturally, extract it into `@Observable` types.
+* Use unit tests for logic and SwiftUI previews for visual correctness.
+* Don’t force testability by complicating your architecture.
+
+---
+
+### 8. Async + Concurrency = First-Class Citizens
+
+* Swift Concurrency should be your default tool for async logic.
+* Use `Task {}` or `.task` in views; they integrate cleanly with the view lifecycle.
+* Avoid Combine unless absolutely necessary (e.g. interop or reactive streams).
+
+---
+
+### 9. Organize Code by Feature
+
+* Group files by **feature**, not by type.
+* Prefer `LoginScreen.swift` over `Views/LoginView.swift` + `ViewModels/LoginVM.swift`.
+* Keep logic and UI close together until duplication or complexity makes it worth extracting.
+
+---
+
+### 10. Examples
+
+```swift
+// ✅ Self-contained UI
+struct CounterView: View {
+    @State private var count = 0
+    
+    var body: some View {
+        VStack {
+            Text("Count: \(count)")
+            Button("Increment") { count += 1 }
+        }
+    }
+}
+```
+
+```swift
+// ✅ Shared state with @Observable
+@Observable
+class AppState {
+    var isLoggedIn = false
+    var user: User?
+
+    func login(user: User) {
+        self.user = user
+        isLoggedIn = true
+    }
+}
+```
+
+```swift
+// ✅ Async in view lifecycle
+struct ProfileView: View {
+    @State private var profile: User?
+    @State private var isLoading = false
+    
+    var body: some View {
+        Group {
+            if let profile {
+                Text(profile.name)
+            } else if isLoading {
+                ProgressView()
+            }
+        }
+        .task {
+            isLoading = true
+            profile = await ProfileService.fetch()
+            isLoading = false
+        }
+    }
+}
+```
+---
+
+SwiftUI is not UIKit. Don't try to make it behave like it is.
+Let your code look like SwiftUI, not like 2015-era MVVM.
