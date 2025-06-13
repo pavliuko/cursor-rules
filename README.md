@@ -12,7 +12,7 @@ This repository contains a structured set of Cursor scan rules designed to promo
 
 - [forget-mvvm-by-Dimillian.mdc](rules/forget-mvvm-by-Dimillian.mdc): Inspired by Thomas Ricouard's article, this rule advocates for modern SwiftUI architecture, discouraging legacy MVVM patterns and promoting native state management, unidirectional data flow, and feature-based organization.
 
-### 🌀 Miscellaneous
+### 🗂️ Workflow
 
 - [ask-first.mdc](rules/ask-first.mdc): Before starting any investigation or work, always ask what exactly needs to be done. Don't dive into the code without knowing the task; confirm your understanding before taking action.
 
