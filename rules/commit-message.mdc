@@ -1,5 +1,5 @@
 ---
-description: 
+description: Use this rule to create git commit message
 globs: 
 alwaysApply: false
 ---
