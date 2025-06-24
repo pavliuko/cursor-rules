@@ -5,12 +5,12 @@ This repository contains a curated set of Cursor scan rules to guide code qualit
 ## Rule Index
 
 ### 🧑‍💼 Collaboration & Workflow
-- [Ask First](rules/ask-first.mdc): Before starting any investigation or work, always ask what exactly needs to be done.
-- [Commit Message Guidelines](rules/commit-message.mdc): Well-written commit messages help your future self and teammates understand the "why" behind changes.
+- [Ask First](rules/ask-first.mdc): No description provided.
+- [Commit Message Guidelines](rules/commit-message.mdc): Use this rule to create git commit message
+- [Pull Request Creation Guidelines](rules/pr.mdc): No description provided.
 
 ### 🏗️ Architecture & Patterns
-- [SwiftUI 2025 Architecture Rules](rules/forget-mvvm-by-Dimillian.mdc): *(Inspired by Thomas Ricouard's article: SwiftUI in 2025: Forget MVVM)*\  
-Core principles for modern SwiftUI app architecture: embrace declarative patterns, avoid legacy MVVM, and organize code by feature.
+- [SwiftUI 2025 Architecture Rules](rules/forget-mvvm-by-Dimillian.mdc): No description provided.
 
 ## License
 
