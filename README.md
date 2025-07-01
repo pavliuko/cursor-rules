@@ -5,12 +5,15 @@ This repository contains a curated set of Cursor scan rules to guide code qualit
 ## Rule Index
 
 ### 🧑‍💼 Collaboration & Workflow
-- [Ask First](rules/ask-first.mdc): Before starting any investigation or work, always ask what exactly needs to be done.
-- [Commit Message Guidelines](rules/commit-message.mdc): Well-written commit messages help your future self and teammates understand the "why" behind changes.
+- [Commit Message Guidelines](.cursor/rules/commit-message.mdc): Well-written commit messages help your future self and teammates understand the "why" behind changes.
+- [Commit Staged Push](.cursor/rules/commit-staged-push.mdc): No description provided.
+- [Pull Request Creation Guidelines](.cursor/rules/pr.mdc): Guidelines for creating pull requests, including title conventions, emoji usage, and description structure.
 
 ### 🏗️ Architecture & Patterns
-- [SwiftUI 2025 Architecture Rules](rules/forget-mvvm-by-Dimillian.mdc): *(Inspired by Thomas Ricouard's article: SwiftUI in 2025: Forget MVVM)*\  
-Core principles for modern SwiftUI app architecture: embrace declarative patterns, avoid legacy MVVM, and organize code by feature.
+- [SwiftUI 2025 Architecture Rules](.cursor/rules/forget-mvvm-by-Dimillian.mdc): Inspired by Thomas Ricouard's article, this rule outlines modern SwiftUI architecture principles, focusing on native data flow, simplicity, and feature-based organization.
+
+### 🛠️ Repository Maintenance
+- [Update](.cursor/rules/update.mdc): To generate and update the `README.md` file with an up-to-date, structured summary of all `.mdc` Cursor scan rules in the repository.
 
 ## License
 

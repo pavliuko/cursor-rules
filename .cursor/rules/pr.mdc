@@ -1,0 +1,66 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Pull Request Creation Guidelines
+
+Pull request must be created using the GitHub CLI (`gh`).
+
+## PR Title
+
+- Keep it short and descriptive.
+- Use the same format as your commit message (e.g., `feat:`, `fix:`).
+- Avoid ticket numbers in the title — include them in the footer if needed.
+- Emojis are optional but can help clarify intent (see below).
+
+### Emojis (Optional but Encouraged)
+
+Using emojis in PR titles can make intent clearer at a glance.
+
+#### Tips
+- Use **one emoji per title**, before the summary.
+- Keep usage **consistent across the project/team**.
+
+#### Suggested Emoji Mapping
+
+| Emoji | Type     | Description                                   |
+|-------|----------|-----------------------------------------------|
+| ✨     | feat     | New features                                  |
+| 🐛     | fix      | Bug fixes                                     |
+| 📝     | docs     | Documentation changes                         |
+| ♻️     | refactor | Code restructuring without behavior change    |
+| 🎨     | style    | Formatting, whitespace, etc.                  |
+| ⚡️     | perf     | Performance improvements                      |
+| ✅     | test     | Adding or updating tests                      |
+| 🧹     | chore    | Tooling, maintenance, config                  |
+| 🚧     | wip      | Work in progress                              |
+| 🔥     | remove   | Removing code or files                        |
+| 🚑     | hotfix   | Critical fixes                                |
+| 🔒     | security | Security updates                              |
+
+### Examples
+- ✨ `feat: ✨ add onboarding animation`
+- 🐛 `fix: 🐛 resolve crash on empty input`
+- 🧹 `chore: 🧹 clean up unused dependencies`
+
+## PR Description
+
+Write your PR description in markdown like this:
+
+```markdown
+## Motivation
+Requested by users and improves accessibility.
+
+## Changes
+- Add toggle in settings screen
+- Store preference in local storage
+- Update theme on app launch
+
+## Notes
+This does not yet persist across devices.
+```
+
+## Post-creation
+1. Verify PR was created successfully
+2. Notify if any immediate actions are needed
