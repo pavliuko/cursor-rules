@@ -33,7 +33,7 @@ Using emojis in PR titles can make intent clearer at a glance.
 | 🎨     | style    | Formatting, whitespace, etc.                  |
 | ⚡️     | perf     | Performance improvements                      |
 | ✅     | test     | Adding or updating tests                      |
-| 🧑‍💻   | chore    | Tooling, maintenance, config                  |
+| 🧹     | chore    | Tooling, maintenance, config                  |
 | 🚧     | wip      | Work in progress                              |
 | 🔥     | remove   | Removing code or files                        |
 | 🚑     | hotfix   | Critical fixes                                |
