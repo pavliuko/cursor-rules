@@ -1,20 +1,49 @@
-# Purpose
+# Cursor Rules Repository
 
-This repository contains a curated set of Cursor scan rules to guide code quality, architecture, and collaboration practices. Each rule is documented for clarity and grouped by theme for easy discovery. Use these rules to maintain consistency and best practices across your projects.
+A comprehensive collection of Cursor AI rules and Apple framework documentation to enhance development workflows and provide quick access to technical references for iOS, macOS, and Swift development.
 
 ## Rule Index
 
-### 🧑‍💼 Collaboration & Workflow
-- [Commit Message Guidelines](.cursor/rules/commit-message.mdc): Well-written commit messages help your future self and teammates understand the "why" behind changes.
-- [Commit Staged Push](.cursor/rules/commit-staged-push.mdc): No description provided.
-- [Pull Request Creation Guidelines](.cursor/rules/pr.mdc): Guidelines for creating pull requests, including title conventions, emoji usage, and description structure.
+### 🧹 Code Quality & Standards
 
-### 🏗️ Architecture & Patterns
-- [SwiftUI 2025 Architecture Rules](.cursor/rules/forget-mvvm-by-Dimillian.mdc): Inspired by Thomas Ricouard's article, this rule outlines modern SwiftUI architecture principles, focusing on native data flow, simplicity, and feature-based organization.
+- **commit-message** - [.cursor/rules/commit-message.mdc](.cursor/rules/commit-message.mdc)  
+  Use this rule to create git commit message
 
-### 🛠️ Repository Maintenance
-- [Update](.cursor/rules/update.mdc): To generate and update the `README.md` file with an up-to-date, structured summary of all `.mdc` Cursor scan rules in the repository.
+- **forget-mvvm-by-Dimillian** - [.cursor/rules/forget-mvvm-by-Dimillian.mdc](.cursor/rules/forget-mvvm-by-Dimillian.mdc)  
+  SwiftUI 2025 Architecture Rules inspired by Thomas Ricouard's article
+
+### 🛠️ Development Workflow
+
+- **commit-staged-push** - [.cursor/rules/commit-staged-push.mdc](.cursor/rules/commit-staged-push.mdc)  
+  Commit staged changes and push
+
+- **pr** - [.cursor/rules/pr.mdc](.cursor/rules/pr.mdc)  
+  Pull Request Creation Guidelines using GitHub CLI
+
+### 🌀 Miscellaneous
+
+- **update** - [.cursor/rules/update.mdc](.cursor/rules/update.mdc)  
+  Generate and update the README.md file with an up-to-date, structured summary of all .mdc Cursor rules and .md documents
+
+## Documentation Index
+
+### 📚 Apple Framework Documentation
+
+- **AppKit Documentation** - [docs/AppKit Documentation.md](docs/AppKit%20Documentation.md)  
+  Comprehensive AppKit framework reference for macOS development
+
+- **Swift Concurrency** - [docs/Swift Concurrency.md](docs/Swift%20Concurrency.md)  
+  Complete guide to Swift 6 concurrency, data race safety, and strict concurrency model
+
+- **SwiftData Documentation** - [docs/SwiftData Documentation.md](docs/SwiftData%20Documentation.md)  
+  SwiftData framework documentation for declarative model persistence
+
+- **SwiftUI Documentation** - [docs/SwiftUI Documentation.md](docs/SwiftUI%20Documentation.md)  
+  Complete SwiftUI framework reference for declarative user interface development
+
+- **UIKit Documentation** - [docs/UIKit Documentation.md](docs/UIKit%20Documentation.md)  
+  Comprehensive UIKit framework documentation for iOS, iPadOS, and tvOS development
 
 ## License
 
-*This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.*
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
