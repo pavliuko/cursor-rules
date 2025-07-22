@@ -1,0 +1,231 @@
+---
+description: Create comprehensive ZenHub(zh) issues with proper templates
+alwaysApply: false
+---
+# ZenHub Issue Creation Guidelines
+
+## **Purpose**
+
+When a user requests creating a ZenHub issue, extract relevant details, determine the appropriate issue type, and generate a properly formatted issue using ZenHub MCP functions for the <github-repo-name> project.
+
+## **ZenHub Configuration**
+
+- **<project-name> Workspace ID:** <zenhub-workspace-id>
+- **GitHub Project:** https://github.com/<github-org-name>/<github-repo-name>
+
+## **Default Repository**
+
+Use <github-repo-name> (GitHub repository) for all issues
+
+## **Pipeline Configuration**
+
+Available ZenHub pipelines in order:
+
+1. **New Issues (Backlog)**
+   - Issues need to be finalized before being moved to Ready for development
+2. **Ready for development**
+   - Issues ready to be worked on
+
+If not explicitly mentioned, mark the issue as **Ready for Development**.
+
+## **Team Members**
+
+Available assignees with their ZenHub and GitHub IDs:
+
+- **Oleksandr Pavliuk** - ZH: `Z2lkOi8vcmFwdG9yL1plbmh1YlVzZXIvMTk4MzI2OQ`, GH: `pavliuko`
+
+If assignee dosn't mentioned specificaly, assign all issues on **Oleksandr Pavliuk**
+
+## **Issue Type Detection**
+
+Automatically determine issue type development level based on user input:
+
+- **Bug** - Problems, errors, crashes, unexpected behavior
+- **Feature** - New functionality, enhancements, user stories  
+- **Task** - Development tasks, refactoring, technical debt
+
+## **Label Management**
+
+### **Default Behavior**
+- **Do NOT set labels by default** unless explicitly requested by the user
+- Keep the `labels` parameter as an empty array `[]` in most cases
+
+### **When to Apply Labels**
+- User explicitly requests specific labels (e.g., "add priority:high label")
+
+### **Label Examples**
+Common labels when requested:
+- Component-based: `ui-component`, `api`, `auth`, `network`
+- Priority: `priority:high`, `priority:medium`, `priority:low`
+- Type-specific: `bug`, `enhancement`, `documentation`
+- Platform: `ios`, `android`, `web`
+
+### **Anti-patterns**
+- ❌ Adding labels without user request
+- ❌ Over-categorizing with multiple labels
+- ❌ Using labels for information already captured in issue type
+
+## **Issue Templates**
+
+### **Bug Report Template**
+
+```markdown
+## 🐛 Problem Description
+
+*Clear description of what's broken or not working as expected.*
+
+## 📱 Environment
+
+- **iOS Version:** 
+- **Device:** 
+- **App Version:** 
+- **Xcode Version:** (if relevant)
+
+## 🔄 Steps to Reproduce
+
+1. 
+2. 
+3. 
+
+## ✅ Expected Behavior
+
+*What should happen instead.*
+
+## ❌ Actual Behavior
+
+*What actually happens.*
+
+## 💥 Impact
+
+- **Severity:** [Critical/High/Medium/Low]
+- **Frequency:** [Always/Often/Sometimes/Rare]
+- **Users Affected:** [All/Subset/Specific scenarios]
+
+## 🔍 Additional Context
+
+*Any other relevant information, error logs, or related issues.*
+
+## 📸 Screenshots/Videos
+
+*Attach visual evidence if applicable.*
+```
+
+### **Feature Request Template**
+
+```markdown
+## 🎯 Goal
+
+*What problem does this solve or what value does it provide?*
+
+## 👥 User Story
+
+*As a [user type], I want [goal] so that [benefit].*
+
+## 💡 Proposed Solution
+
+*High-level description of the desired functionality.*
+
+## ✅ Acceptance Criteria
+
+- [ ] 
+- [ ] 
+- [ ] 
+
+## 📐 Design Considerations
+
+*UI/UX requirements, platform-specific considerations.*
+
+## 🔗 Dependencies
+
+*Related issues, external dependencies, or prerequisites.*
+
+```
+
+### **Task Template**
+
+```markdown
+## 🎯 Objective
+
+*Brief summary of what needs to be done and why (1–2 sentences).*
+
+## 📋 Description
+
+*Detailed description of the task, including context and background.*
+
+## ✅ Acceptance Criteria
+
+*Specific, measurable outcomes that define task completion:*
+
+- [ ] 
+- [ ] 
+- [ ] 
+
+## 🔧 Technical Notes
+
+*Implementation guidance, architectural considerations, or technical constraints.*
+
+```
+
+## **MCP Function Usage**
+
+### **Creating Issues**
+
+Use the appropriate creation function based on repository type:
+
+#### **GitHub Issues** (For <github-repo-name> - Primary Repository)
+```
+mcp_zenhub_createGitHubIssue({
+  title: "Issue Title", 
+  body: "Issue body content",
+  repositoryId: "",
+  issueTypeId: "appropriate_issue_type_id",
+  assignees: ["github_usernames"],
+  labels: [] // Empty by default unless user requests specific labels
+})
+```
+
+#### **ZenHub Issues** (For internal ZenHub tracking)
+```
+mcp_zenhub_createZenhubIssue({
+  title: "Issue Title",
+  body: "Issue body content",
+  repositoryId: "",
+  issueTypeId: "appropriate_issue_type_id",
+  assigneeIds: ["assignee_zenhub_ids"],
+  labels: [] // Empty by default unless user requests specific labels
+})
+```
+
+## **Title Guidelines**
+
+`Component: Brief description`
+
+### **Best Practices**
+- Keep titles under 60 characters
+- Use active voice and clear language
+- Include component/area when relevant
+- Examples:
+  - `SignIn: Email validation fails for special characters`
+  - `Add biometric authentication to login flow`
+  - `Refactor NetworkAPI error handling`
+  - `User onboarding experience`
+
+## **Quality Guidelines**
+
+### **Issue Body Requirements**
+- Use clear, actionable language
+- Include specific acceptance criteria for features/tasks
+- Provide reproduction steps for bugs
+- Focus on user needs and business value
+- Include relevant technical context
+
+### **Avoid Anti-patterns**
+- ❌ Vague titles like "Fix login"
+- ❌ Missing acceptance criteria
+- ❌ Implementation details in user stories
+- ❌ Duplicate issues without cross-referencing
+- ❌ Missing reproduction steps for bugs
+- ❌ Creating issues without estimates when needed
+- ❌ Implementation details in user stories
+- ❌ Duplicate issues without cross-referencing
+- ❌ Missing reproduction steps for bugs

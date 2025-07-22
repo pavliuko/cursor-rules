@@ -1,48 +1,40 @@
-# Cursor Rules Repository
+# Purpose
 
-A comprehensive collection of Cursor AI rules and Apple framework documentation to enhance development workflows and provide quick access to technical references for iOS, macOS, and Swift development.
+This repository contains a comprehensive collection of Cursor rules and documentation designed to enhance Swift/iOS/macOS development workflows. The rules provide structured guidelines for commit messages, issue management, pull requests, and SwiftUI architecture patterns, while the documentation serves as a complete reference for Apple's development frameworks including SwiftUI, UIKit, AppKit, SwiftData, and Swift Concurrency.
 
 ## Rule Index
 
-### 🧹 Code Quality & Standards
+### 🚀 Development Workflow
 
-- **commit-message** - [.cursor/rules/commit-message.mdc](.cursor/rules/commit-message.mdc)  
-  Use this rule to create git commit message
+- **[commit-message](.cursor/rules/commit-message.mdc)** - Use this rule to create git commit message
+- **[commit-staged-push](.cursor/rules/commit-staged-push.mdc)** - Commit staged changes and push
+- **[pr](.cursor/rules/pr.mdc)** - Pull Request creation guidelines with GitHub CLI integration
 
-- **forget-mvvm-by-Dimillian** - [.cursor/rules/forget-mvvm-by-Dimillian.mdc](.cursor/rules/forget-mvvm-by-Dimillian.mdc)  
-  SwiftUI 2025 Architecture Rules inspired by Thomas Ricouard's article
+### 📋 Issue Management
 
-### 🛠️ Development Workflow
+- **[gh-issue](.cursor/rules/gh-issue.mdc)** - Create comprehensive GitHub issues with proper templates and CLI integration
+- **[zh-issue](.cursor/rules/zh-issue.mdc)** - Create comprehensive ZenHub(zh) issues with proper templates
 
-- **commit-staged-push** - [.cursor/rules/commit-staged-push.mdc](.cursor/rules/commit-staged-push.mdc)  
-  Commit staged changes and push
+### 🏗️ Architecture & Best Practices
 
-- **pr** - [.cursor/rules/pr.mdc](.cursor/rules/pr.mdc)  
-  Pull Request Creation Guidelines using GitHub CLI
+- **[forget-mvvm-by-Dimillian](.cursor/rules/forget-mvvm-by-Dimillian.mdc)** - SwiftUI 2025 Architecture Rules based on Thomas Ricouard's article
 
-### 🌀 Miscellaneous
+### 🛠️ Maintenance
 
-- **update** - [.cursor/rules/update.mdc](.cursor/rules/update.mdc)  
-  Generate and update the README.md file with an up-to-date, structured summary of all .mdc Cursor rules and .md documents
+- **[update](.cursor/rules/update.mdc)** - Generate and update the README.md file with an up-to-date summary of all rules and documentation
 
 ## Documentation Index
 
-### 📚 Apple Framework Documentation
+### 📱 Apple Frameworks
 
-- **AppKit Documentation** - [docs/AppKit Documentation.md](docs/AppKit%20Documentation.md)  
-  Comprehensive AppKit framework reference for macOS development
+- **[AppKit Documentation](docs/AppKit%20Documentation.md)** - Comprehensive AppKit framework reference for macOS development
+- **[SwiftData Documentation](docs/SwiftData%20Documentation.md)** - Complete SwiftData framework guide for data persistence and management
+- **[SwiftUI Documentation](docs/SwiftUI%20Documentation.md)** - Extensive SwiftUI framework documentation for declarative UI development
+- **[UIKit Documentation](docs/UIKit%20Documentation.md)** - Complete UIKit framework reference for iOS, iPadOS, and tvOS development
 
-- **Swift Concurrency** - [docs/Swift Concurrency.md](docs/Swift%20Concurrency.md)  
-  Complete guide to Swift 6 concurrency, data race safety, and strict concurrency model
+### ⚡ Swift Language
 
-- **SwiftData Documentation** - [docs/SwiftData Documentation.md](docs/SwiftData%20Documentation.md)  
-  SwiftData framework documentation for declarative model persistence
-
-- **SwiftUI Documentation** - [docs/SwiftUI Documentation.md](docs/SwiftUI%20Documentation.md)  
-  Complete SwiftUI framework reference for declarative user interface development
-
-- **UIKit Documentation** - [docs/UIKit Documentation.md](docs/UIKit%20Documentation.md)  
-  Comprehensive UIKit framework documentation for iOS, iPadOS, and tvOS development
+- **[Swift Concurrency](docs/Swift%20Concurrency.md)** - Complete guide to Swift 6 Concurrency, data race safety, and strict concurrency model
 
 ## License
 
