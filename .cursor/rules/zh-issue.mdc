@@ -21,12 +21,7 @@ Use <github-repo-name> (GitHub repository) for all issues
 
 Available ZenHub pipelines in order:
 
-1. **New Issues (Backlog)**
-   - Issues need to be finalized before being moved to Ready for development
-2. **Ready for development**
-   - Issues ready to be worked on
-
-If not explicitly mentioned, mark the issue as **Ready for Development**.
+**All issues are created as Ready for Development by default.**
 
 ## **Team Members**
 
@@ -127,9 +122,7 @@ Common labels when requested:
 
 ## ✅ Acceptance Criteria
 
-- [ ] 
-- [ ] 
-- [ ] 
+*Specific, measurable outcomes that define feature completion.*
 
 ## 📐 Design Considerations
 
@@ -154,11 +147,7 @@ Common labels when requested:
 
 ## ✅ Acceptance Criteria
 
-*Specific, measurable outcomes that define task completion:*
-
-- [ ] 
-- [ ] 
-- [ ] 
+*Specific, measurable outcomes that define task completion.*
 
 ## 🔧 Technical Notes
 
@@ -170,10 +159,11 @@ Common labels when requested:
 
 ### **Creating Issues**
 
-Use the appropriate creation function based on repository type:
+Use the appropriate creation function based on repository type, then immediately move to "Ready for development" pipeline:
 
 #### **GitHub Issues** (For <github-repo-name> - Primary Repository)
 ```
+// 1. Create the issue
 mcp_zenhub_createGitHubIssue({
   title: "Issue Title", 
   body: "Issue body content",
@@ -182,10 +172,17 @@ mcp_zenhub_createGitHubIssue({
   assignees: ["github_usernames"],
   labels: [] // Empty by default unless user requests specific labels
 })
+
+// 2. Move to Ready for development pipeline
+mcp_zenhub_moveIssueToPipeline({
+  issueId: "created_issue_id",
+  pipelineId: "" // Ready for development
+})
 ```
 
 #### **ZenHub Issues** (For internal ZenHub tracking)
 ```
+// 1. Create the issue
 mcp_zenhub_createZenhubIssue({
   title: "Issue Title",
   body: "Issue body content",
@@ -193,6 +190,12 @@ mcp_zenhub_createZenhubIssue({
   issueTypeId: "appropriate_issue_type_id",
   assigneeIds: ["assignee_zenhub_ids"],
   labels: [] // Empty by default unless user requests specific labels
+})
+
+// 2. Move to Ready for development pipeline
+mcp_zenhub_moveIssueToPipeline({
+  issueId: "created_issue_id",
+  pipelineId: "" // Ready for development
 })
 ```
 
@@ -203,6 +206,7 @@ mcp_zenhub_createZenhubIssue({
 ### **Best Practices**
 - Keep titles under 60 characters
 - Use active voice and clear language
+- Include a prefix to indicate the responsible team: (DEV) for Development.
 - Include component/area when relevant
 - Examples:
   - `SignIn: Email validation fails for special characters`
@@ -214,7 +218,7 @@ mcp_zenhub_createZenhubIssue({
 
 ### **Issue Body Requirements**
 - Use clear, actionable language
-- Include specific acceptance criteria for features/tasks
+- Include specific acceptance criteria for features/tasks (no checkboxes)
 - Provide reproduction steps for bugs
 - Focus on user needs and business value
 - Include relevant technical context
@@ -222,10 +226,17 @@ mcp_zenhub_createZenhubIssue({
 ### **Avoid Anti-patterns**
 - ❌ Vague titles like "Fix login"
 - ❌ Missing acceptance criteria
+- ❌ Using checkbox lists in acceptance criteria
 - ❌ Implementation details in user stories
 - ❌ Duplicate issues without cross-referencing
 - ❌ Missing reproduction steps for bugs
-- ❌ Creating issues without estimates when needed
-- ❌ Implementation details in user stories
-- ❌ Duplicate issues without cross-referencing
-- ❌ Missing reproduction steps for bugs
+
+## **Post-Creation Actions**
+
+### **Required Issue Link**
+**REQUIRED:** Always end your message with a hyperlink to the created issue in markdown format:
+```markdown
+🔗 [**Issue #[number]:**](https://app.zenhub.com/<workspace-id>/[number])
+```
+
+This link should be the very last line of your response to ensure users can easily access the issue in ZenHub.

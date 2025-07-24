@@ -200,6 +200,7 @@ Present the generated issue (title, body, assignees) and GitHub CLI command for 
 
 ### **Avoid Anti-patterns**
 - ❌ Vague titles like "Fix login"
+- ❌ Using checkbox lists in acceptance criteria
 - ❌ Implementation details in acceptance criteria
 - ❌ Duplicate issues without cross-referencing
 - ❌ Missing reproduction steps for bugs
@@ -211,6 +212,16 @@ Present the generated issue (title, body, assignees) and GitHub CLI command for 
 - Mention potential implementation approaches (but don't prescribe)
 - Consider breaking large features into smaller issues
 - Add time estimates or complexity indicators when helpful
+
+## **Post-Creation Actions**
+
+### **Required Issue Link**
+**REQUIRED:** Always end your message with a hyperlink to the created issue in markdown format:
+```markdown
+🔗 [**Issue #[number]:**](https://github.com/<github-org-name>/<github-repo-name>/issues/[number])
+```
+
+This link should be the very last line of your response to ensure users can easily access the issue.
 
 ## **Integration Notes**
 
