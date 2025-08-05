@@ -1,0 +1,1 @@
+Create or update a ZenHub issue as specified in $ARGUMENTS and follow any additional instructions provided. Follow the workflow rules defined in .claude/rules/zh-issue.md.
