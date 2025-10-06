@@ -1,12 +1,4 @@
----
-description: 
-globs: 
-alwaysApply: false
----
-
-## Purpose
-
-To generate and update the `README.md` file with an up-to-date, structured summary of all `.mdc` Cursor rules, `.md` Claude instructions, and `.md` documents in the repository. This rule is intended to be executed manually on demand to ensure the documentation reflects the current state of the rule set.
+Update the `README.md` file with an up-to-date, structured summary of all `.mdc` Cursor rules, `.md` Claude instructions, and `.md` documents in the repository. This command is intended to be executed to ensure the documentation reflects the current state of the rule set.
 
 ## Step-by-Step Instructions
 

@@ -1,0 +1,12 @@
+---
+description: Critical workspace rules. Must always follow.
+globs: "**/*"
+alwaysApply: true
+---
+
+# CRITICAL RULES - NEVER VIOLATE
+
+## Git Rules - ABSOLUTE PROHIBITION
+❌ **NEVER commit or push to repository unless EXPLICITLY requested**
+❌ **NEVER add "commit" or "push" tasks to todo lists automatically**
+❌ **ALWAYS wait for explicit user instruction to commit/push**
