@@ -1,0 +1,46 @@
+# Modular Architecture
+
+We maintain a modular architecture using Swift Packages. The goal is to improve scalability, feature isolation, and development speed by splitting the codebase into independent packages for shared instruments and features.
+
+## Package Structure
+
+### 1. `Core` Package
+
+* **Responsibilities:**
+
+  * Shared data models.
+  * Networking layer (REST API).
+  * Shared services (analytics, events, etc.).
+  * Navigation abstraction (`Router`).
+  * Localizable strings.
+  * Shared data controllers (e.g., user/session).
+  * Design System (Colors, Fonts, Styles).
+  * Shared UI components (Buttons, Loaders, etc.).
+
+* **Key Concept:**
+
+  * **Feature packages can import `Core`.**
+  * **`Core` never depends on `Features`.**
+
+### 2. `Features` Package
+
+* **Responsibilities:**
+
+  * Self-contained features.
+
+* **Key Concept:**
+
+  * Features own their local logic and depend on `Core` for shared resources.
+
+## Architecture Flow
+
+* App-level code initializes features from the `Features` package.
+* Navigation to other packages or app-level handled through `Router`.
+
+## Benefits
+
+* Clear separation between shared infrastructure (`Core`) and app-specific features.
+* Strong feature isolation — features are self-contained modules.
+* Faster feature development through modularization.
+* Simplified dependency management.
+* Improved testability and scalability.
