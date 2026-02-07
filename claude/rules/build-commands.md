@@ -62,5 +62,5 @@ mcp__XcodeBuildMCP__list_sims
 
 ### Packages
 
-- Core and Features packages are iOS-only — use `mcp__XcodeBuildMCP__build_simbuild_sim`/`mcp__XcodeBuildMCP__test_sim` with main project
+- Core and Features packages are iOS-only — use `mcp__XcodeBuildMCP__build_sim`/`mcp__XcodeBuildMCP__test_sim` with main project
 - Do not use `swift_package_build` or `swift_package_test` for iOS packages

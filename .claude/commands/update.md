@@ -35,7 +35,7 @@ If any field is missing:
 
 ### Step 4: Claude
 
-- Repeat steps 1-3 for all `.md` files in the `.claude` folder and subfolders.
+- Repeat steps 1-3 for all `.md` files in the `claude` folder and subfolders.
 
 ### Step 5: Documentation
 
